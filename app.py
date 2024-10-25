@@ -3,20 +3,20 @@ gamers = ['♩', '♪', '♫']
 
 for _ in range (4):
     game_field.append( ['o'] * 5)
-"""
-Вывод игрового поля
-"""
 def game_print(game_field):
+    """
+    Вывод игрового поля,  функция принимает параметр - игровое поле - массив с ходами
+    """
     for row in game_field:
         for symbol in row:
             print("{:^2}".format(symbol), end = '')
         print()
 
 points = [0]*3
-"""
-Подсчет очков
-"""
 def game_points(game_field):
+    """
+    Подсчет очков, функция принимает параметр - игровое поле - массив с ходами
+    """
     game_field = [['.'] * 5] + game_field + [['.'] * 5]
     for number in range (6):
         game_field[number] = ['.'] + game_field[number] + ['.']
@@ -32,11 +32,11 @@ def game_points(game_field):
             game_field[string][column] = 'o'
     return points
             
-"""
-Ход игры + результат
-"""
 step=0
 def game_go():
+    """
+    Ход игры + результат
+    """
     global step
     name = gamers[step%3]
     if step <= 19:
